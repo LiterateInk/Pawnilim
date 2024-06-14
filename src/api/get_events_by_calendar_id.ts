@@ -41,6 +41,8 @@ interface Event {
 }
 
 /**
+ * Get events by calendar ID.
+ * 
  * GET /api/agenda_widget/events/
  * 
  * Located at `src/Controller/AgendaWidgetController.php` in the `getEvents` method.
