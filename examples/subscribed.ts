@@ -1,9 +1,13 @@
-import { get_subscribed_by_username } from "~/api/get_subscribed_by_username";
+import { get_subscribed_by_username, login_check, oauth2_authorize, oauth2_token } from "../src";
 
-const TOKEN = "";
+const username = "";
+const password = "";
 
 void async function main () {
-  const subscribed = await get_subscribed_by_username(TOKEN);
+  const code = await oauth2_authorize({ username, password });
+  const { access_token } = await oauth2_token(code);
+  const { token } = await login_check(access_token);
+  const subscribed = await get_subscribed_by_username(token);
 
   for (const item of subscribed) {
     console.log(`[${item.type}] ${item.name} (${item.id})`);
