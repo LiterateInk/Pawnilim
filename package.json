@@ -1,6 +1,6 @@
 {
   "name": "pawnilim",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple wrapper around Unilim's Biome internal API.",
   "repository": "github:LiterateInk/Pawnilim",
   "main": "./dist/index.js",
