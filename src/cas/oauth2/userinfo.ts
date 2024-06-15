@@ -6,8 +6,11 @@ export const oauth2_userinfo = async (access_token: string) => {
   const json = await response.json() as {
     family_name: string
     given_name: string
+    /** Family name and given name combined. */
     name: string
+    /** Username used to authenticate. */
     sub: string
+    email: string
   };
 
   return json;

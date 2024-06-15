@@ -22,7 +22,7 @@ export const oauth2_authorize = async (data: {
   uri.searchParams.set("redirect_uri", redirectURI);
   uri.searchParams.set("client_id", clientID);
   uri.searchParams.set("response_type", "code");
-  uri.searchParams.set("scope", "openid profile");
+  uri.searchParams.set("scope", "openid profile email");
   uri.searchParams.set("code_challenge_method", OAUTH2_CODE_CHALLENGE_METHOD);
   uri.searchParams.set("code_challenge", OAUTH2_CODE_CHALLENGE);
   uri.searchParams.set("state", OAUTH2_STATE);
