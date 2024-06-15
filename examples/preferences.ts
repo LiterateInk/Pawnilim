@@ -2,7 +2,7 @@ import { preferences_by_properties } from "~/api/preferences_by_properties";
 
 const TOKEN = "";
 
-void async function () {
+void async function main () {
   const userApplications = await preferences_by_properties(TOKEN, "userApplications");
   const userInterface = await preferences_by_properties(TOKEN, "userInterface");
   const userShortWidgets = await preferences_by_properties(TOKEN, "userShortWidgets");
