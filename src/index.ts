@@ -3,6 +3,8 @@ export { get_subscribed_by_username } from "./api/get_subscribed_by_username";
 export { preferences_by_properties } from "./api/preferences_by_properties";
 export { get_moodle_courses } from "./api/get_moodle_courses";
 export { login_check } from "./api/login_check";
+export { user_by_username } from "./api/user_by_username";
+export { get_user_profile } from "./api/get_user_profile";
 
 export { oauth2_authorize } from "./cas/oauth2/authorize";
 export { oauth2_token } from "./cas/oauth2/token";
