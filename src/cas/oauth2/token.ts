@@ -25,4 +25,4 @@ export const oauth2_token = async (code: string, useDevEndpoint = false) => {
   };
 
   return json;
-}
+};

@@ -12,7 +12,7 @@ export const login_check = async (access_token: string, useDevEndpoint = false) 
 
   const json = await response.json() as { token: string } | { code: number, message: string };
   if ("code" in json) {
-    throw new Error(json.message);  
+    throw new Error(json.message);
   }
 
   return json;

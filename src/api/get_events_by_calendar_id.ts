@@ -1,19 +1,19 @@
-import { DEV_ENDPOINT, PROD_ENDPOINT } from "~/utils/constants"
+import { DEV_ENDPOINT, PROD_ENDPOINT } from "~/utils/constants";
 
 interface Event {
   /** Same calendarID provided in request parameters. */
   calendarId: string
-  
+
   title: string
-  
-  /** 
+
+  /**
    * @example
    * "2024-01-23" // if allDay is true
    * "2024-05-28T14:00:00.000+02:00" // if allDay is false
    */
   startDate: string
-  
-  /** 
+
+  /**
    * @example
    * "2024-01-23" // if allDay is true
    * "2024-05-28T14:00:00.000+02:00" // if allDay is false
@@ -42,11 +42,11 @@ interface Event {
 
 /**
  * Get events by calendar ID.
- * 
+ *
  * GET /api/agenda_widget/events/
- * 
+ *
  * Located at `src/Controller/AgendaWidgetController.php` in the `getEvents` method.
- * 
+ *
  * Requires to be authenticated with granted `ROLE_USER`.
  */
 export const get_events_by_calendar_id = async (token: string, data: {
@@ -63,11 +63,11 @@ export const get_events_by_calendar_id = async (token: string, data: {
     headers: { "Authorization": "Bearer " + token }
   });
 
-  
-  const json = await response.json() as Event[] | { code: number, message: string }
+
+  const json = await response.json() as Event[] | { code: number, message: string };
   if ("code" in json) {
-    throw new Error(json.message);  
+    throw new Error(json.message);
   }
 
-  return json
+  return json;
 };

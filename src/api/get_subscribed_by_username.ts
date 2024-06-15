@@ -1,4 +1,4 @@
-import { DEV_ENDPOINT, PROD_ENDPOINT } from "~/utils/constants"
+import { DEV_ENDPOINT, PROD_ENDPOINT } from "~/utils/constants";
 
 interface Subscribed {
   /**
@@ -12,13 +12,13 @@ interface Subscribed {
 
 /**
  * Get calendars and todo lists by username.
- * 
+ *
  * GET /api/agenda_widget/subscribed
- * 
+ *
  * Located at `src/Controller/AgendaWidgetController.php` in the `getSubscribed` method.
- * 
+ *
  * Requires to be authenticated with granted `ROLE_USER`.
- * 
+ *
  * Requests O365 if email not containing "etu".
  * Requests BlueMind otherwise.
  */
@@ -28,10 +28,10 @@ export const get_subscribed_by_username = async (token: string, useDevEndpoint =
     headers: { "Authorization": "Bearer " + token }
   });
 
-  const json = await response.json() as Subscribed[] | { code: number, message: string }
+  const json = await response.json() as Subscribed[] | { code: number, message: string };
   if ("code" in json) {
-    throw new Error(json.message);  
+    throw new Error(json.message);
   }
 
-  return json
+  return json;
 };

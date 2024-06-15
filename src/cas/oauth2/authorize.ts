@@ -4,7 +4,7 @@ import { findValueBetween } from "~/utils/finder";
 /**
  * Does all the steps to authorize a user
  * using `/oauth2/authorize` endpoint.
- * 
+ *
  * @returns The `code` to exchange for an access token
  * using `/oauth2/token` endpoint.
  */
@@ -17,7 +17,7 @@ export const oauth2_authorize = async (data: {
 
   const redirectURI = (useDevEndpoint ? BIOME_DEV_ENDPOINT : BIOME_PROD_ENDPOINT) + "/authentication/callback";
   const clientID = useDevEndpoint ? "biome-dev" : "biome-prod";
-  
+
   uri = new URL("https://cas.unilim.fr/oauth2/authorize");
   uri.searchParams.set("redirect_uri", redirectURI);
   uri.searchParams.set("client_id", clientID);
@@ -31,7 +31,7 @@ export const oauth2_authorize = async (data: {
   const html = await response.text();
 
   // Token that allows to login.
-  const loginToken = findValueBetween(html, 'name="token" value="', '" />');
+  const loginToken = findValueBetween(html, "name=\"token\" value=\"", "\" />");
 
   response = await fetch(uri, {
     method: "POST",
@@ -51,7 +51,7 @@ export const oauth2_authorize = async (data: {
   uri = new URL(response.url);
   if (uri.searchParams.get("state") !== OAUTH2_STATE)
     throw new Error("Invalid state");
-  
+
   return uri.searchParams.get("code") as string;
 };
 
