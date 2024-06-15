@@ -1,10 +1,8 @@
 import { oauth2_authorize, oauth2_token, oauth2_userinfo } from "../src";
-
-const username = "";
-const password = "";
+import { credentials } from "./_credentials";
 
 void async function main () {
-  const code = await oauth2_authorize({ username, password });
+  const code = await oauth2_authorize(credentials);
   const { access_token } = await oauth2_token(code);
   const { email, name, sub } = await oauth2_userinfo(access_token);
 
