@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: Pawnilim
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Mikkel
+    family-names: RINGAUD
+    email: mikkel@milescode.dev
+repository-code: 'https://github.com/LiterateInk/Pawnilim'
+url: 'https://literate.ink/pawnilim'
+abstract: >-
+  A simple wrapper around Unilim's Biome internal
+  API.
+keywords:
+  - unilim
+  - biome
+  - university
+  - wrapper
+  - api
+license: GPL-3.0
