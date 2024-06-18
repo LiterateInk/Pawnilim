@@ -1,6 +1,6 @@
 import { BIOME_DEV_ENDPOINT, BIOME_PROD_ENDPOINT, OAUTH2_CODE_CHALLENGE } from "~/utils/constants";
 
-export const oauth2_token = async (code: string, useDevEndpoint = false) => {
+export const cas_oauth2_token = async (code: string, useDevEndpoint = false) => {
   const redirectURI = (useDevEndpoint ? BIOME_DEV_ENDPOINT : BIOME_PROD_ENDPOINT) + "/authentication/callback";
   const clientID = useDevEndpoint ? "biome-dev" : "biome-prod";
 
