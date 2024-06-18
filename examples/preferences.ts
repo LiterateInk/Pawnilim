@@ -1,9 +1,10 @@
-import { login_check, oauth2_authorize, oauth2_token, preferences_by_properties } from "../src";
+import { cas_login, login_check, cas_oauth2_authorize, cas_oauth2_token, preferences_by_properties } from "../src";
 import { credentials } from "./_credentials";
 
 void async function main () {
-  const code = await oauth2_authorize(credentials);
-  const { access_token } = await oauth2_token(code);
+  const cas_token = await cas_login(credentials.username, credentials.password);
+  const code = await cas_oauth2_authorize(cas_token);
+  const { access_token } = await cas_oauth2_token(code);
   const { token } = await login_check(access_token);
 
   const userApplications = await preferences_by_properties(token, "userApplications");
